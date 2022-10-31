@@ -4,8 +4,9 @@ function comecar() {
     window.location.href='Quiz.html'
 }
 
+let tempoPergunta = 20;
 let timer = document.querySelector('#timer');
-timer.innerHTML = 15;
+timer.innerHTML = tempoPergunta;
 function updateTimer(){
     timer.innerHTML--;
     if(timer.innerHTML <= 0 && pergAtiva == true){
@@ -23,6 +24,8 @@ function updateTimer(){
     
 }
 let t = setInterval(updateTimer, 1000);
+
+document.body.querySelector('audio').volume = 0.9;
 
 const questao1 = {
     pergunta: "Qual o nome completo do Ben 10?",
@@ -102,7 +105,7 @@ function inicia_questao(n) {
 }
 
 function proxima_questao(){
-    timer.innerHTML = 15;
+    timer.innerHTML = tempoPergunta;
     inicia_questao(++numero_questao);
     pergAtiva = true;
 }
