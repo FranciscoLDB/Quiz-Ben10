@@ -4,7 +4,8 @@ function comecar() {
     window.location.href='Quiz.html'
 }
 
-let tempoPergunta = 20;
+
+let tempoPergunta = 25;
 let timer = document.querySelector('#timer');
 timer.innerHTML = tempoPergunta;
 function updateTimer(){
@@ -37,6 +38,7 @@ questao1.gabarito = questao1.respostas.indexOf('Benjamin Kirby Tennyson') + 1;
 const questao2 = {
     pergunta: "Qual o parentesco da Gwen Tennyson com o Ben 10?",
     respostas: embaralha_lista(["Prima", "Irma", "Amiga", "Namorada"]),
+    gabarito: 1,
     img: "./Images/gwen.webp"
 }
 questao2.gabarito = questao2.respostas.indexOf('Prima') + 1;
@@ -44,6 +46,7 @@ questao2.gabarito = questao2.respostas.indexOf('Prima') + 1;
 const questao3 = {
     pergunta: "Qual o nome correto do alien da figura abaixo?",
     respostas: embaralha_lista(["XLR8", "XRL80", "CB160", "RTX1080"]),
+    gabarito: 1,
     img: "./Images/XLR8.webp"
 }
 questao3.gabarito = questao3.respostas.indexOf('XLR8') + 1;
@@ -51,6 +54,7 @@ questao3.gabarito = questao3.respostas.indexOf('XLR8') + 1;
 const questao4 = {
     pergunta: "Qual o nome do alien da figura abaixo?",
     respostas: embaralha_lista(["Ultra-T", "XLR8", "Massa Cinzenta", "Insectóide"]),
+    gabarito: 1,
     img: "./Images/ultraT.jpg"
 }
 questao4.gabarito = questao4.respostas.indexOf('Ultra-T') + 1;
@@ -58,6 +62,7 @@ questao4.gabarito = questao4.respostas.indexOf('Ultra-T') + 1;
 const questao5 = {
     pergunta: "Qual desses é um vilão do Ben 10?",
     respostas: embaralha_lista(["Vilgax", "Toguro", "Alfred", "Aku"]),
+    gabarito: 1,
     img: "./Images/ben102.jpg"
 }
 questao5.gabarito = questao5.respostas.indexOf('Vilgax') + 1;
@@ -68,7 +73,6 @@ const questao6 = {
     img: "./Images/voBen10.jpg"
 }
 questao6.gabarito = questao6.respostas.indexOf('Max') + 1;
-
 
 function embaralha_lista(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -102,7 +106,10 @@ function inicia_questao(n) {
     for(let i = 0; i < listaRespostas.length; i++){
         listaRespostas[i].style.opacity = 1; 
     }
+    qual_questao.innerHTML = (numero_questao + 1) + '/' + listaPerguntas.length;
 }
+
+let qual_questao = document.getElementById('numeroPergunta');
 
 function proxima_questao(){
     timer.innerHTML = tempoPergunta;
